@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Express enforces authorization using the Admin SDK. Browsers cannot access these collections directly.
+    match /edulearnSchool/{document} { allow read, write: if false; }
+    match /edulearnAdmins/{document} { allow read, write: if false; }
+    match /edulearnAudit/{document} { allow read, write: if false; }
+  }
+}
